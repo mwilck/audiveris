@@ -1,3 +1,7 @@
+plugins {
+  id 'com.github.jk1.dependency-license-report' version '2.0'
+}
+
 apply plugin: 'application'
 
 project.version  = '5.4-alpha'
