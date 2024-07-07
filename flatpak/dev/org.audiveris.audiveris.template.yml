@@ -55,6 +55,8 @@ modules:
       # NOTA: mind the fact that expand() will reduce the backslashes in template, so double them!
       - ln --force ${GRADLE_NAME} gradle/wrapper/${GRADLE_NAME}
       - sed --regexp-extended --in-place 's,https\\\\://services.gradle.org/distributions/,,' gradle/wrapper/gradle-wrapper.properties
+      # we don't need the flatpak code inside the flatpak build
+      - sed -i '/flatpak/d' settings.gradle
 
       # Copy the Tesseract language files
       - echo "DEBUG Copy the Tesseract language files"
