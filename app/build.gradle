@@ -120,7 +120,7 @@ repositories {
         println "repositories. isFlatpak set"
         maven { // Only the offline repository
             name = 'Offline repository for flatpak'
-            url = '../flatpak/build/dependencies' 
+            url = '/run/build/audiveris/dependencies'
         }
     } else {
         mavenCentral()
