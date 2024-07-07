@@ -99,7 +99,7 @@ We can find:
 
 In this "work in progress", the generation of Flatpak components is trigged by the following command, entered from Audiveris root folder:
 ``` sh
-./gradlew -q :app:buildFlatpak
+./gradlew -q :flatpak:buildFlatpak
 ```
 
 This means to launch the task ``buildFlatpak`` within the sub-project ``flatpak``.
