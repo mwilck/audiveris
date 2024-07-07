@@ -40,7 +40,7 @@ task genLanguages {
     doLast {
     	println "Copying language sources to $flathubDir"
     	copy {
-    	    from("appdir/dev/tessdata")
+    	    from("${appDir}/dev/tessdata")
     	    include '*.traineddata'
     	    into(flathubDir)
     	}
