@@ -55,7 +55,15 @@ def app = project(':app')
 String docFilesPattern = "src=\"doc-files/([^\"]*)\""
 
 repositories {
-    mavenCentral() 
+    if (project.hasProperty("isFlatpak")) {
+        println "repositories. isFlatpak set"
+        maven { // Only the offline repository
+            name = 'Offline repository for flatpak'
+            url = '/run/build/audiveris/dependencies'
+        }
+    } else {
+        mavenCentral()
+    }
 }
 
 // Specification of XSLT transformer
