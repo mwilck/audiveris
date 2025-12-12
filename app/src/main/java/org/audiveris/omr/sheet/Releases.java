@@ -5,7 +5,11 @@
 //------------------------------------------------------------------------------------------------//
 // <editor-fold defaultstate="collapsed" desc="hdr">
 //
+<<<<<<< HEAD
 //  Copyright © Audiveris 2026. All rights reserved.
+=======
+//  Copyright © Audiveris 2025. All rights reserved.
+>>>>>>> c85f366e1 (Ability to print releases information)
 //
 //  This program is free software: you can redistribute it and/or modify it under the terms of the
 //  GNU Affero General Public License as published by the Free Software Foundation, either version
