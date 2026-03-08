@@ -420,17 +420,24 @@ public class IntegerFunction
     /**
      * Print out the values: x, y, y' for each x.
      *
-     * @param stream output stream
+     * @param title     function title if any
+     * @param xMaxPrint maximum x to be printed
+     * @param stream    output stream
      */
-    public void print (PrintStream stream)
+    public void print (String title,
+                       Integer xMaxPrint,
+                       PrintStream stream)
     {
-        stream.print("[\n");
-
-        for (int x = xMin + 1; x <= xMax; x++) {
-            int der = getDerivative(x);
-            stream.format(" %d:%d/%+d%n", x, getValue(x), der);
+        if (title != null) {
+            stream.println(title);
         }
 
+        final int x2 = (xMaxPrint != null) ? Math.min(xMax, xMaxPrint) : xMax;
+
+        stream.println("[");
+        for (int x = xMin + 1; x <= x2; x++) {
+            stream.format("%6d:%d/%+d%n", x, getValue(x), getDerivative(x));
+        }
         stream.println("]");
     }
 
