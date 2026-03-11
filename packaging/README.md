@@ -107,6 +107,24 @@ Something like that:
 ![](./assets/latest-release.png)
 
 ## Publishing on Windows Community repository
+
+Once the release draft has been edited and published as the latest release on GitHub,
+a new Latest Release is defined in Audiveris repository.
+
+This triggers the action defined
+in file [.github/workflows/publish-winget.yml](../.github/workflows/publish-winget.yml)
+and named "Publish on Windows repository".
+
+The action does in sequence:
+1. Download the latest version of `wingetcreate.exe`
+2. Retrieve the descriptor of Audiveris latest release
+3. Retrieve the download URL of the (first) Windows installer among the release assets
+4. Use `wingetcreate.exe` to update and submit the winget manifest for Audiveris
+
+A pull request like [this one](https://github.com/microsoft/winget-pkgs/pull/347694) is automatically posted on the `github/microsoft/winget-pkgs` repository,
+waiting for someone to review and approve it.
+
+
 ## Publishing on Scoop Extras bucket
 
 ### Automated update
@@ -114,7 +132,7 @@ Once the release draft has been edited and published as the latest release on Gi
 a new Latest Release is defined in Audiveris repository.
 
 "Automagically", the related Scoop manifest will shortly get updated on Scoop Extras bucket,
-thanks to the "***autoupdate***" feature within this manifest.
+thanks to the "***autoupdate***" feature within this manifest.  
 Scoop documentation is not very clear on this, but my understanding is that, at some pace, 
 the installers referenced in Scoop manifests are checked and updated if needed.
 
