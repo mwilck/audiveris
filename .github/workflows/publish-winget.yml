@@ -13,6 +13,7 @@ jobs:
     permissions:
       actions: write
       contents: write
+      pull-requests: write
     steps:
       - name: Submit package to Windows repository
         run: |
