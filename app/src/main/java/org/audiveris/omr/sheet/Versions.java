@@ -325,8 +325,7 @@ public abstract class Versions
         final GHRelease latest = Releases.getLatestRelease();
         final Version latestVersion = new Version(latest.getTagName().trim());
 
-        ///if (Versions.CURRENT_SOFTWARE.compareTo(latestVersion) < 0) {
-        if (true) {
+        if (Versions.CURRENT_SOFTWARE.compareTo(latestVersion) < 0) {
             logger.info("A new software release is available: {}", latestVersion);
 
             if (OMR.gui == null) {
