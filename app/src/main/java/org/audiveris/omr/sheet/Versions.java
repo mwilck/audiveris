@@ -160,7 +160,6 @@ public abstract class Versions
     private static final DateFormat DATE_FORMAT = new SimpleDateFormat("dd-MMM-yyyy", Locale.US);
 
     //~ Constructors -------------------------------------------------------------------------------
-
     /** No instance needed for this functional class. */
     @SuppressWarnings("unused")
     private Versions ()
@@ -168,7 +167,6 @@ public abstract class Versions
     }
 
     //~ Static Methods -----------------------------------------------------------------------------
-
     //-------//
     // check //
     //-------//
@@ -238,12 +236,13 @@ public abstract class Versions
         final Frequency frequency = constants.releaseCheckFrequency.getValue();
 
         switch (frequency) {
-            case Always -> {}
-            case Daily -> next.add(Calendar.DAY_OF_MONTH, 1);
-            case Weekly -> next.add(Calendar.WEEK_OF_MONTH, 1);
-            case Monthly -> next.add(Calendar.MONTH, 1);
-            case Yearly -> next.add(Calendar.YEAR, 1);
-            case Never -> next = null;
+        case Always -> {
+        }
+        case Daily -> next.add(Calendar.DAY_OF_MONTH, 1);
+        case Weekly -> next.add(Calendar.WEEK_OF_MONTH, 1);
+        case Monthly -> next.add(Calendar.MONTH, 1);
+        case Yearly -> next.add(Calendar.YEAR, 1);
+        case Never -> next = null;
         }
 
         logger.debug(
@@ -365,7 +364,6 @@ public abstract class Versions
     }
 
     //~ Inner Classes ------------------------------------------------------------------------------
-
     //---------------//
     // AbstractPanel //
     //---------------//
@@ -375,6 +373,7 @@ public abstract class Versions
     private abstract static class AbstractPanel
             extends Panel
     {
+
         protected final String title;
 
         protected LLabel status = new LLabel(JLabel.LEFT);
@@ -453,6 +452,7 @@ public abstract class Versions
         private class ParamAction
                 extends AbstractAction
         {
+
             /**
              * Method run when user presses Return/Enter in one of the parameter fields
              *
@@ -470,7 +470,6 @@ public abstract class Versions
     }
 
     //~ Inner Classes ------------------------------------------------------------------------------
-
     //-------------//
     // CheckResult //
     //-------------//
@@ -487,6 +486,7 @@ public abstract class Versions
     private static class Constants
             extends ConstantSet
     {
+
         private final Constant.Enum<Frequency> releaseCheckFrequency = new Constant.Enum<>(
                 Frequency.class,
                 Frequency.Weekly,
@@ -517,6 +517,7 @@ public abstract class Versions
     private static class NegativePanel
             extends AbstractPanel
     {
+
         NegativePanel (GHRelease release)
         {
             super(getResources().getString("Negative.title"), release);
@@ -541,6 +542,7 @@ public abstract class Versions
     private static class PositivePanel
             extends AbstractPanel
     {
+
         private final LLabel published = new LLabel(null, null, JLabel.LEFT);
 
         private final JLabel urlLabel = new JLabel();
@@ -595,7 +597,7 @@ public abstract class Versions
             defineLayout();
 
             // Trick to pre-position the scroll pane at its top left
-            javax.swing.SwingUtilities.invokeLater( () -> {
+            javax.swing.SwingUtilities.invokeLater(() -> {
                 scrollPane.getViewport().setViewPosition(new Point(0, 0));
             });
         }
