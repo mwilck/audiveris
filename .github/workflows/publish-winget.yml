@@ -37,5 +37,5 @@ jobs:
           
           # Update and submit the manifest
           echo "=== updating manifest..."
-          .\wingetcreate.exe update audiveris.org.Audiveris --submit --version $latest.tag_name --urls $installerUrl --token ${{ secrets.GITHUB_TOKEN }}
+          .\wingetcreate.exe update audiveris.org.Audiveris --submit --version $latest.tag_name --urls $installerUrl --token ${{ secrets.WINGET_PAT }}
           echo "=== manifest updated and submitted!"
