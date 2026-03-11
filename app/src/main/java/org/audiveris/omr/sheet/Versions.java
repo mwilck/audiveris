@@ -325,7 +325,8 @@ public abstract class Versions
         final GHRelease latest = Releases.getLatestRelease();
         final Version latestVersion = new Version(latest.getTagName().trim());
 
-        if (Versions.CURRENT_SOFTWARE.compareTo(latestVersion) < 0) {
+        ///if (Versions.CURRENT_SOFTWARE.compareTo(latestVersion) < 0) {
+        if (true) {
             logger.info("A new software release is available: {}", latestVersion);
 
             if (OMR.gui == null) {
@@ -647,6 +648,19 @@ public abstract class Versions
             final HtmlRenderer renderer = HtmlRenderer.builder().build();
 
             return renderer.render(parser.parse(markdown));
+        }
+
+        @Override
+        public void setVisible (boolean visible)
+        {
+            super.setVisible(visible);
+
+            if (visible == true) {
+                scrollPane.getVerticalScrollBar().setValue(0); // scroll bar to the top
+                scrollPane.getHorizontalScrollBar().setValue(0); // scroll bar to the left
+            }
+
+            scrollPane.repaint();
         }
     }
 }
