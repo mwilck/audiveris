@@ -14,8 +14,6 @@ permissions:
 jobs:
   winget:
     name: Publish winget package
-    env:
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     runs-on: windows-latest
     steps:
       - name: Submit package to Windows repository
@@ -39,5 +37,5 @@ jobs:
           
           # Update and submit the manifest
           echo "=== updating manifest..."
-          .\wingetcreate.exe update audiveris.org.Audiveris --submit --version $latest.tag_name --urls $installerUrl
+          .\wingetcreate.exe update audiveris.org.Audiveris --submit --version $latest.tag_name --urls $installerUrl --token ${{ secrets.WINGET_PAT }}
           echo "=== manifest updated and submitted!"
